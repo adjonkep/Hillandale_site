@@ -1,0 +1,16 @@
+#tutorial site
+https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uswgi-and-nginx-on-ubuntu-18-04
+
+#start uwsgi
+uwsgi --socket 0.0.0.0:8080 --protocol=http -w wsgi:app
+
+#service file
+/etc/systemd/system/site.service
+
+#nginx config
+/etc/nginx/sites-available/site
+
+#some commands
+sudo systemctl daemon-reload
+sudo systemctl restart site
+sudo systemctl restart nginx
